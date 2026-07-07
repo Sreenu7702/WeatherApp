@@ -3,7 +3,8 @@ import "./App.css";
 import useWeatherStore from "./store/webstore";
 
 function App() {
-  const [city, setCity] = useState("");
+  const [city, setCity] =
+    useState<string>("");
 
   const {
     weather,
@@ -22,10 +23,14 @@ function App() {
             type="text"
             placeholder="Enter City"
             value={city}
-            onChange={(e) =>
+            onChange={(
+              e: React.ChangeEvent<HTMLInputElement>
+            ) =>
               setCity(e.target.value)
             }
-            onKeyDown={(e) => {
+            onKeyDown={(
+              e: React.KeyboardEvent<HTMLInputElement>
+            ) => {
               if (e.key === "Enter") {
                 getWeather(city);
               }
